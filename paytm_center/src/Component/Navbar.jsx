@@ -67,14 +67,14 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
             </Flex>
           </Flex>
   
-          <InputGroup w={500} mr={20}>
+          <InputGroup w={500} mr={30}>
     <InputLeftElement
       pointerEvents='none'
       children={<AiOutlineSearch color='gray.300' />}
     />
     <Input type='tel' placeholder='Search for a product, Brand or Category' />
   </InputGroup>
-              <Box><AiOutlineShoppingCart/></Box>
+              <Box><AiOutlineShoppingCart size="25px"/></Box>
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={'flex-end'}
@@ -264,16 +264,19 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
   
   const NAV_ITEMS: Array<NavItem> = [
     {
-      label: 'Shop by Category',
+      label: ' Categories',
       children: [
         {
           label: 'Grocery & Home Furnishing',
+          href:""
         },
         {
           label: 'Jewellery Brands',
+          href:""
         },
         {
             label: 'Fashion',
+            href:""
           }
       ],
     },
