@@ -5,14 +5,15 @@ import {
   Container,
   Link,
   SimpleGrid,
+  Image,
   Stack,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const Logo = (props: any) => {
+const Logo = (props) => {
   return (
-    <img src='Logo_paytm.png' alt='logo'/>
+    <Image src="Logo_paytm.png" alt='logo'/>
   );
 };
 
@@ -26,16 +27,16 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
 
 export default function LargeWithLogoLeft() {
   return (
-    <Box
+    <Box fontSize="sm"
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 1fr 1fr' }}
-          spacing={8}>
+          spacing={5}>
           <Stack spacing={6}>
             <Box>
-              <Logo color={useColorModeValue('gray.700', 'white')} />
+              <Logo />
             </Box>
             <Text fontSize={'sm'}>
               © 2022 Chakra Templates. All rights reserved

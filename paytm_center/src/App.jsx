@@ -10,6 +10,7 @@ const App=()=>{
     <div className="App">
      {/* <AllRoutes/> */}
      <Navbar/>
+     <Home/>
      <Footer/>
     </div>
   );
