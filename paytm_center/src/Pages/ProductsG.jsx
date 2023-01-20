@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProductsG=()=>{
-    return <div>Products</div>
+    return <div>Groceries</div>
 }
 
 export default ProductsG;
