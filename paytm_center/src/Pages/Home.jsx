@@ -1,9 +1,13 @@
 import React from "react";
 import { Stack, HStack, VStack ,Image,Box,Text,Divider, Button  } from '@chakra-ui/react';
+import Navbar from '../Component/Navbar';
+import Footer from '../Component/Footer';
 import {AiFillApple,AiFillWindows,AiFillAndroid,AiOutlineTwitter,AiFillFacebook,AiFillYoutube,AiFillInstagram} from "react-icons/ai";
 const Home=()=>{
     return <>
-        <VStack spacing="10px" h="800px" mt={5}>
+        <Navbar/>
+
+        <VStack spacing="10px" h="1200px" mt={5}>
             <Text fontSize="xl" fontWeight="bold">Grocery & Home Furnishing</Text>
         <HStack spacing="30px" h="45%" w="90%">
         <Box   w="23%" >
@@ -40,6 +44,25 @@ const Home=()=>{
         <Box   w="23%" >
             <Image src="https://assetscdn1.paytm.com/images/catalog/view_item/711200/1620745456365.jpg?imwidth=414&impolicy=hq"/>
             <Text fontSize='xl'>Josalukkas</Text>
+        </Box>
+    </HStack>
+    <Text fontSize="xl" fontWeight="bold">Fashion</Text>
+    <HStack spacing="30px" h="45%" w="90%">
+        <Box w="23%" >
+            <Image borderRadius={10} src="https://www.yoox.com/images/yoox80/banners/6825_1_Boss_M_Tris.jpg?634485886601286852#width=473&height=660"/>
+            <Text fontSize='xl'>Men's Clothing</Text>
+        </Box>
+        <Box  w="23%" >
+            <Image borderRadius={10} src="https://www.yoox.com/images/yoox80/banners/6825_3_NewBalance_ADV_W.jpg?634485886601286852#width=473&height=660"/>
+            <Text fontSize='xl'>Women's Clothing</Text>
+        </Box>
+        <Box  w="23%" >
+            <Image borderRadius={10} src="https://www.yoox.com/images/yoox80/banners/6821_6_Kenzo_Tris_K.jpg?634485886601286852#width=387&height=540"/>
+            <Text fontSize='xl'>Kid's Clothing</Text>
+        </Box>
+        <Box   w="23%" >
+            <Image borderRadius={10} src="https://www.yoox.com/images/yoox80/banners/6825_2_AdidasByStella_Tris_W.jpg?634485886601286852#width=473&height=660"/>
+            <Text fontSize='xl'>Clothing Accessories</Text>
         </Box>
     </HStack>
         </VStack>
@@ -87,6 +110,7 @@ const Home=()=>{
    <AiFillFacebook color="#FF5722" /> 
    <AiFillYoutube color="#FF5722"/>
 </HStack>
+<Footer/>
     </>
 }
 

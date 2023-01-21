@@ -268,15 +268,15 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
       children: [
         {
           label: 'Grocery & Home Furnishing',
-          href:""
+          href:"productsG"
         },
         {
           label: 'Jewellery Brands',
-          href:""
+          href:"productsJ"
         },
         {
             label: 'Fashion',
-            href:""
+            href:"productsC"
           }
       ],
     },

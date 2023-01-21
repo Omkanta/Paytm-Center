@@ -1,17 +1,16 @@
 import React from "react";
-import Home from "../Pages/Home"
-import Login from "../Pages/Login";
+import {Routes,Route} from "react-router-dom";
+import Home from "../Pages/Home";
 import ProductsC from "../Pages/ProductsC";
-import Register from "../Pages/Register";
-import { Route, Routes } from "react-router-dom";
-
+import ProductsG from "../Pages/ProductsG";
+import ProductsJ from "../Pages/ProductsJ";
 const AllRoutes=()=>{
     return (
         <Routes>
-            <Route to="/" element={<Home/>}></Route>
-            <Route to="/login" element={<Login/>}></Route>
-            <Route to="/products" element={<ProductsC/>}></Route>
-            <Route to="/register" element={<Register/>}></Route>
+            <Route path="/" element={ <Home/>}/>
+            <Route path="/productsC" element={<ProductsC/>}/>
+            <Route path="/productsG" element={<ProductsG/>}/>
+            <Route path="/productsJ" element={<ProductsJ/>}/>
         </Routes>
     )
 }
