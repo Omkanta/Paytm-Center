@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
 
 import {
   Box,
@@ -13,11 +13,11 @@ import {
 
 const Logo = (props) => {
   return (
-    <Image src="Logo_paytm.png" alt='logo'/>
+    <Image src="https://www.linkpicture.com/q/Logo_paytm.png" width='100px' alt='logo'/>
   );
 };
 
-const ListHeader = ({ children }: { children: ReactNode }) => {
+const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
       {children}

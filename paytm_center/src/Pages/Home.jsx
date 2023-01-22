@@ -1,13 +1,12 @@
 import React from "react";
 import { Stack, HStack, VStack ,Image,Box,Text,Divider, Button  } from '@chakra-ui/react';
-import Navbar from '../Component/Navbar';
-import Footer from '../Component/Footer';
+
 import {AiFillApple,AiFillWindows,AiFillAndroid,AiOutlineTwitter,AiFillFacebook,AiFillYoutube,AiFillInstagram} from "react-icons/ai";
 const Home=()=>{
     return <>
-        <Navbar/>
 
-        <VStack spacing="10px" h="1200px" mt={5}>
+        <VStack spacing="10px" h="1600px" mt={5}>
+
             <Text fontSize="xl" fontWeight="bold">Grocery & Home Furnishing</Text>
         <HStack spacing="30px" h="45%" w="90%">
         <Box   w="23%" >
@@ -46,7 +45,7 @@ const Home=()=>{
             <Text fontSize='xl'>Josalukkas</Text>
         </Box>
     </HStack>
-    <Text fontSize="xl" fontWeight="bold">Fashion</Text>
+    <Text fontSize="xl" fontWeight="bold">Fashion & Clothes</Text>
     <HStack spacing="30px" h="45%" w="90%">
         <Box w="23%" >
             <Image borderRadius={10} src="https://www.yoox.com/images/yoox80/banners/6825_1_Boss_M_Tris.jpg?634485886601286852#width=473&height=660"/>
@@ -92,15 +91,15 @@ const Home=()=>{
     </Stack>
 
 <HStack > 
-    <Button pr={-1}  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">About us</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Partner with us</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Terms & Conditions</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Blog</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Media</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">24x7 Help</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Grievance policy</Button>
-    <Button p={-1} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Bug bounty</Button>
-    <Button pl={-1} mr={4} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Return policy</Button>
+    <Button   _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">About us</Button>
+    <Button _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Partner with us</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Terms & Conditions</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Blog</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Media</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">24x7 Help</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Grievance policy</Button>
+    <Button  _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Bug bounty</Button>
+    <Button  mr={4} _hover={{bg:"white"}} bg="white" fontSize="xs" color="orange.400">Return policy</Button>
     <AiFillApple color="#FF5722"/>
     <AiFillWindows color="#FF5722"/>
     <AiFillAndroid color="#FF5722"/>
@@ -110,7 +109,6 @@ const Home=()=>{
    <AiFillFacebook color="#FF5722" /> 
    <AiFillYoutube color="#FF5722"/>
 </HStack>
-<Footer/>
     </>
 }
 

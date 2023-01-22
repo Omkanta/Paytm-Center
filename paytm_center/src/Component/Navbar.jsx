@@ -25,10 +25,24 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+  import {useNavigate} from "react-router-dom"
+// import { Navigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
   
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
-  
+    const { loginWithRedirect,isAuthenticated,logout} = useAuth0();
+    let navigate=useNavigate();
+
+const HomeLogo=()=>{
+let path='/';
+navigate(path);
+}
+const Cartnav=()=>{
+  let path='/cart';
+  navigate(path);
+  }
+
     return (
       <Box>
         <Flex
@@ -40,6 +54,7 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
           borderBottom={1}
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')}
+          justifyContent={'space-evenly'}
           align={'center'}>
           <Flex
             flex={{ base: 1, md: 'auto' }}
@@ -55,41 +70,51 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
+            <Text mr={5}
+            //  onClick={()=><Navigate to='/'/>}
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               fontFamily={'heading'}
               color={useColorModeValue('gray.800', 'white')}>
-                <img src='../Component/Logo_paytm.png' alt='logo' />
+                <img src='https://www.linkpicture.com/q/Logo_paytm.png' alt='logo' width='40px' onClick={HomeLogo}/>
             </Text>
   
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
+            <Flex display={{ base: 'none', md: 'flex' }}>
+              <DesktopNav  />
             </Flex>
           </Flex>
   
-          <InputGroup w={500} mr={30}>
-    <InputLeftElement
-      pointerEvents='none'
-      children={<AiOutlineSearch color='gray.300' />}
-    />
-    <Input type='tel' placeholder='Search for a product, Brand or Category' />
-  </InputGroup>
-              <Box><AiOutlineShoppingCart size="25px"/></Box>
+          <InputGroup w={600} mr={50}>
+              <InputLeftElement
+                pointerEvents='none'
+                children={<AiOutlineSearch color='gray.300' />}
+              />
+              <Input type='tel' placeholder='Search for a product, Brand or Category' />
+          </InputGroup>
+              <Box mx={10}><AiOutlineShoppingCart onClick={Cartnav} size="25px"/></Box>
           <Stack
             flex={{ base: 1, md: 0 }}
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            <Button
+            
+            {(isAuthenticated)?(<Button
+            onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
+              bg={' red.500'}
+              _hover={{
+                bg: 'red.600',
+              }}
               ml={6}
+              mr={6}
+              px={4}
+              color={'white'}
               variant={'link'}
               href={'#'}>
-              Sign In
-            </Button>
-            <Button
+              Logout 
+            </Button>):(        <Button
+              onClick={() => loginWithRedirect()}
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
@@ -99,7 +124,22 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
               _hover={{
                 bg: 'orange.500',
               }}>
-              Sign Up
+              Sign Up/Sign In
+            </Button>)
+              }
+
+    
+            <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'#616161'}
+              href={'#'}
+              _hover={{
+                bg: 'black',
+              }}>
+              Admin
             </Button>
           </Stack>
         </Flex>
@@ -125,7 +165,7 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
                 <Link
                   p={2}
                   href={navItem.href ?? '#'}
-                  fontSize={'sm'}
+                  fontSize={'lg'}
                   fontWeight={500}
                   color={linkColor}
                   _hover={{
@@ -158,7 +198,7 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
     );
   };
   
-  const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+  const DesktopSubNav = ({ label, href, subLabel }) => {
     return (
       <Link
         href={href}
@@ -205,7 +245,7 @@ import {AiOutlineSearch,AiOutlineShoppingCart} from "react-icons/ai";
     );
   };
   
-  const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const MobileNavItem = ({ label, children, href }) => {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
