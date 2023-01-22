@@ -5,24 +5,19 @@ import {
     Box,
     Image,
     Badge,
-    Icon,
+    Button,
     Text,
-    chakra,
-    Tooltip,
     Grid,
   } from '@chakra-ui/react';
-  // import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-  import { FiShoppingCart } from 'react-icons/fi';
   import axios from "axios";
 
 
 
-
-const ProductsC=()=>{
+const Cart=()=>{
     const [data,setData]=React.useState([]);
-
+    // let navigate=useNavigate();
     React.useEffect(()=>{
-        axios.get('https://ap-ifor-cw.vercel.app/clothes')
+        axios.get('https://ap-ifor-cw.vercel.app/cart')
   .then(function (response) {
     // handle success
     setData(response.data);
@@ -35,26 +30,23 @@ const ProductsC=()=>{
     // always executed
   });
     },[])
-
-    function AddItem(id,image,title,rating,price,e){
-      axios.post("https://ap-ifor-cw.vercel.app/cart", {
-        id,image,title,price,rating
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
+    function handleDelete(id,e){
+        axios.delete(`https://ap-ifor-cw.vercel.app/cart/${id}`)
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+      }
     return (
         <div style={{width:'40%'}}>
-            
+            <Text fontSize={'xx-large'} margin={'auto'}>Cart</Text>
         <Grid width='100%' autoFlow='row' templateColumns="repeat(3,1fr)" gap={3} whiteSpace='wrap'>
         {data.map((el)=>(
-                <Flex p={50}  key={el.id}  alignItems="center" justifyContent="center">
+                <Flex p={50}   alignItems="center" justifyContent="center">
                 <Box
-                key={el.id}
+                key={el.id} 
                 //   bg={useColorModeValue('white', 'gray.800')}
                   maxW="sm"
                   borderWidth="1px"
@@ -73,8 +65,8 @@ const ProductsC=()=>{
                   )}
           
                   <Image
-                   margin={'auto'}
-                   pt={'20px'}
+                 margin={'auto'}
+                 pt={'20px'}     
                     src={el.image}
                     alt={`Picture of ${el.title}`}
                     roundedTop="lg"
@@ -97,30 +89,30 @@ const ProductsC=()=>{
                         isTruncated>
                         {el.title}
                       </Box>
-                      <Tooltip
-                     
-                        label="Add to cart"
+                      {/* <Tooltip
+                         
                         bg="white"
                         placement={'top'}
                         color={'gray.800'}
                         fontSize={'1.2em'}>
-                       <chakra.a display={'flex'} onClick={(e)=>AddItem(el.id,el.image,el.title,el.rating,el.price,e)}>
-                          <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'}  />
+                        <chakra.a display={'flex'}  
+                          <Icon color={'red.500'} as={AiFillDelete} h={9} w={9} alignSelf={'center'} /> 
                         </chakra.a>
-                      </Tooltip>
+                      </Tooltip> */}
                     </Flex>
           
                     <Flex justifyContent="space-between" alignContent="center">
                       <Text>Rating:{el.rating}</Text>
-                      <Box fontSize="2xl" >
+                    </Flex>
+                    <Box fontSize="2xl" >
                       {/* color={useColorModeValue('gray.800', 'white')} */}
                         <Box as="span" color={'gray.600'} fontSize="lg">
                           Rs.
                         </Box>
-                        {el.price.toFixed(2)}
+                        {el.price}
                       </Box>
-                    </Flex>
                   </Box>
+                  <Button bg={'red.500'} color={'white'} _hover={{bg:'red.700', color:'white'}} mb={5} onClick={(e)=>handleDelete(el.id,e)}>Delete</Button>
                 </Box>
               </Flex>
           
@@ -131,4 +123,4 @@ const ProductsC=()=>{
        
 }
 
-export default ProductsC;
+export default Cart;
